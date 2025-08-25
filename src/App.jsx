@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import LoginPage from "./Components/LoginPage";
+import EmployeeManagement from "./Components/EmployeeManagement";
+import OrderDashboard from "./Components/OrderDashboard";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,6 +10,8 @@ function App() {
   return (
     <>
       <LoginPage />
+      <EmployeeManagement />
+      <OrderDashboard />
     </>
   );
 }
