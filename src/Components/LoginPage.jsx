@@ -7,7 +7,7 @@ const LoginPage = () => {
   const emailRegex = /^[\w\.-]+@[\w\.-]+\.\w{2,}$/;
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  const isLogin = true;
+  let isLogin = true;
   passwordRegex.test(password);
   const navigate = useNavigate();
 

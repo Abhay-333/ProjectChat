@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const EmployeeManagement = () => {
   const [formData, setFormData] = useState({
@@ -35,6 +37,26 @@ const EmployeeManagement = () => {
     });
   };
 
+  const navigate =useNavigate();
+ 
+  const location = useLocation();
+
+  const personalPage= () => {
+      navigate("/personalinfo");
+  };
+
+  const employeePage = () => {
+    // // If already on employee page, just reload/reset form
+    // console.log(window.location) // brute-force refresh
+    // if (location.pathname === "/employeeManagement") {
+    //   window.location.reload();
+    //   // or call handleReset() if you just want form reset
+    // } else {
+    // }
+    navigate("/employeeManagement");
+  };
+  
+
   return (
     <div className="w-full h-[100vh] p-20 flex items-center bg-gray-50">
       {/* Left Sidebar */}
@@ -51,11 +73,11 @@ const EmployeeManagement = () => {
 
           {/* Navigation Menu */}
           <div className="w-full space-y-4">
-            <button className="w-full py-4 px-6 text-left rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+            <button className="w-full py-4 px-6 text-left rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors" onClick={personalPage}>
               Personal Information
             </button>
             
-            <button className="w-full py-4 px-6 text-left rounded-lg bg-[#FF823A] text-white font-medium shadow-md">
+            <button className="w-full py-4 px-6 text-left rounded-lg bg-[#FF823A] text-white font-medium shadow-md" onClick={employeePage} >
               Employee Management
             </button>
             
