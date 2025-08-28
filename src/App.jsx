@@ -29,8 +29,9 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />}></Route>
         
         <Route path="/employee-management" element={<EmployeeManagement />} >
-        <Route path="/personalinfo" element={<PersonalInfo />} />
         </Route>
+        
+        <Route path="/employee-management/personalinfo" element={<PersonalInfo />} />
         
       </Routes>
     </>

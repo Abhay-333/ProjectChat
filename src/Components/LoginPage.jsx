@@ -78,7 +78,7 @@ const LoginPage = () => {
             <h3>
               Don't have an account? 
               <a
-                href="/employeeManagement"
+                href="/employee-management"
                 className="text-[#FF823A] cursor-pointer font-semibold"
               >
                 Sign up

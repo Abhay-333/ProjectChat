@@ -9,14 +9,14 @@ const EmployeeManagement = () => {
     email: "",
     phoneNumber: "",
     gender: "",
-    role: ""
+    role: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -33,19 +33,20 @@ const EmployeeManagement = () => {
       email: "",
       phoneNumber: "",
       gender: "",
-      role: ""
+      role: "",
     });
   };
 
-  const navigate =useNavigate();
- 
+  const navigate = useNavigate();
+
   const location = useLocation();
 
-  const personalPage= () => {
-      navigate("/personalinfo");
+  const personalPage = () => {
+    window.location.pathname = "/employee-management/personalinfo";
   };
 
   const employeePage = () => {
+    console.log("ASd")
     // // If already on employee page, just reload/reset form
     // console.log(window.location) // brute-force refresh
     // if (location.pathname === "/employeeManagement") {
@@ -53,9 +54,9 @@ const EmployeeManagement = () => {
     //   // or call handleReset() if you just want form reset
     // } else {
     // }
-    navigate("/employeeManagement");
+    // window.location.pathname = "/employee-management";
+    // navigate("/employee-management");
   };
-  
 
   return (
     <div className="w-full h-[100vh] p-20 flex items-center bg-gray-50">
@@ -64,41 +65,49 @@ const EmployeeManagement = () => {
         <div className="flex flex-col items-center">
           {/* Profile Image */}
           <div className="w-48 h-48 rounded-full overflow-hidden mb-8 shadow-lg">
-            <img 
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-              alt="Profile" 
+            <img
+              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Profile"
               className="w-full h-full object-cover"
             />
           </div>
 
           {/* Navigation Menu */}
           <div className="w-full space-y-4">
-            <button className="w-full py-4 px-6 text-left rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors" onClick={personalPage}>
+            <button
+              className="w-full py-4 px-6 text-left rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+              onClick={personalPage}
+            >
               Personal Information
             </button>
-            
-            <button className="w-full py-4 px-6 text-left rounded-lg bg-[#FF823A] text-white font-medium shadow-md" onClick={employeePage} >
+
+            <button
+              className="w-full py-4 px-6 text-left rounded-lg bg-[#FF823A] text-white font-medium shadow-md"
+              onClick={employeePage}
+            >
               Employee Management
             </button>
-            
+
             <button className="w-full py-4 px-6 text-left rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
               Opening Hours
             </button>
-            
+
             <button className="w-full py-4 px-6 text-left rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
               Login & Password
             </button>
           </div>
         </div>
       </div>
-
+ {/* Create separate component for employee-management navbar */}
       {/* Right Content Area */}
       <div className="rightSide w-2/3 h-[90vh] bg-white rounded-2xl shadow-lg p-10">
         <div className="h-full">
           {/* Header */}
           <div className="flex items-center mb-8">
             <span className="text-2xl mr-3">▷</span>
-            <h1 className="text-3xl font-semibold text-gray-800">Add New Employees</h1>
+            <h1 className="text-3xl font-semibold text-gray-800">
+              Add New Employees
+            </h1>
           </div>
 
           {/* Form */}
